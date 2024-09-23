@@ -1,36 +1,64 @@
 body {
-    font-family: "Times New Roman", serif;
-    background: #f0f0f0;
-    padding: 20px;
+    background: transparent;
+    font-family: 'Times New Roman', serif;
 }
 
-.faq-container {
+.accordion {
     max-width: 600px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
     padding: 20px;
+    border-radius: 8px;
 }
 
-.faq-item {
+.accordion-text {
+    padding: 10px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.faq-text {
+    list-style: none;
+    padding: 0;
+}
+
+.faq-text li {
     margin: 10px 0;
-    border: 1px solid #ddd;
+    border-bottom: 1px solid #ccc; /* Optional */
+}
+
+.question-arrow {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent */
     border-radius: 5px;
 }
 
-.question {
-    padding: 15px;
-    background: #e7f1ff;
-    cursor: pointer;
+.question-arrow:hover {
+    background: rgba(255, 255, 255, 0.7); /* Slightly more opaque on hover */
 }
 
-.answer {
+.arrow {
+    transition: transform 0.3s;
+}
+
+.faq-text li p {
     display: none;
-    padding: 15px;
-    background: #f9f9f9;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent */
+    border-radius: 5px;
+    margin-top: 5px;
 }
 
-.answer.show {
+.faq-text li.showAnswer .arrow {
+    transform: rotate(180deg); /* Rotate the arrow when active */
+}
+
+.faq-text li.showAnswer p {
     display: block;
 }
