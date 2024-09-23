@@ -1,81 +1,35 @@
 <!DOCTYPE html>
-<!-- Coding by CodingNepal | www.codingnepalweb.com -->
-<html lang="en" dir="ltr">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title> Responsive FAQ Accordion | CodingLab </title>
+    <title>Simple FAQ Box</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Boxicons CDN Link -->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
+</head>
 <body>
-  <div class="accordion">
-    <div class="image-box">
-      <img src="images/mainImg.png" alt="Accordion Image">
+    <div class="faq-container">
+        <h2>FAQ</h2>
+        <div class="faq-item">
+            <div class="question">What do you mean by HTML & CSS?</div>
+            <div class="answer">HTML stands for HyperText Markup Language and CSS stands for Cascading Style Sheets. They are the building blocks of web development.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">What do you mean by JavaScript?</div>
+            <div class="answer">JavaScript is a programming language used to create dynamic content on websites.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">Which code editor do you use?</div>
+            <div class="answer">I use Visual Studio Code for my web development projects.</div>
+        </div>
     </div>
-    <div class="accordion-text">
-      <div class="title">FAQ</div>
-    <ul class="faq-text">
-      <li>
-        <div class="question-arrow">
-          <span class="question">What do you mean by HTML & CSS?</span>
-          <i class="bx bxs-chevron-down arrow"></i>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, doloribus.</p>
-        <span class="line"></span>
-      </li>
-      <li>
-        <div class="question-arrow">
-          <span class="question">What do you mean by JavaScript?</span>
-          <i class="bx bxs-chevron-down arrow"></i>
-        </div>
-        <p>JavaScript is a text-based programming language used both on the client-side and server-side that allows you to make web pages interactive</p>
-        <span class="line"></span>
-      </li>
-      <li>
-        <div class="question-arrow">
-          <span class="question">From where you learned HTML & CSS?</span>
-          <i class="bx bxs-chevron-down arrow"></i>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, necessitatibus.</p>
-        <span class="line"></span>
-      </li>
-      <li>
-        <div class="question-arrow">
-          <span class="question">Which code editor do you use?</span>
-          <i class="bx bxs-chevron-down arrow"></i>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, labore.</p>
-        <span class="line"></span>
-      </li>
-      <li>
-        <div class="question-arrow">
-          <span class="question">Software you use for video editing?</span>
-          <i class="bx bxs-chevron-down arrow"></i>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, repudiandae!</p>
-        <span class="line"></span>
-      </li>
-    </ul>
-    </div>
-  </div>
 
-
-  <script>
-    let li = document.querySelectorAll(".faq-text li");
-    for (var i = 0; i < li.length; i++) {
-      li[i].addEventListener("click", (e)=>{
-        let clickedLi;
-        if(e.target.classList.contains("question-arrow")){
-          clickedLi = e.target.parentElement;
-        }else{
-          clickedLi = e.target.parentElement.parentElement;
-        }
-       clickedLi.classList.toggle("showAnswer");
-      });
-    }
-  </script>
-
+    <script>
+        const questions = document.querySelectorAll('.question');
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                question.nextElementSibling.classList.toggle('show');
+            });
+        });
+    </script>
 </body>
 </html>
