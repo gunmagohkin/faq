@@ -31,38 +31,29 @@
     <textarea id="comment" placeholder="Your Comment" required></textarea>
     <button id="submit">Submit</button>
 
-   <script>
-    const submitButton = document.getElementById('submit');
+    <script>
+        const commentSection = document.getElementById('comment-section');
+        const submitButton = document.getElementById('submit');
 
-    submitButton.addEventListener('click', async () => {
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const comment = document.getElementById('comment').value;
+        submitButton.addEventListener('click', () => {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const comment = document.getElementById('comment').value;
 
-        if (name && email && comment) {
-            try {
-                const response = await fetch('YOUR_GOOGLE_APPS_SCRIPT_URL_HERE', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ name, email, comment }),
-                });
-
-                const result = await response.json();
-                if (result.status === 'success') {
-                    alert('Comment submitted successfully!');
-                } else {
-                    alert('Failed to submit comment');
-                }
-            } catch (error) {
-                alert('Error submitting comment: ' + error);
+            if (name && email && comment) {
+                const newComment = document.createElement('div');
+                newComment.classList.add('comment');
+                newComment.innerHTML = `<strong>${name}:</strong><p>${comment}</p>`;
+                commentSection.appendChild(newComment);
+                
+                // Clear the input fields
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('comment').value = '';
+            } else {
+                alert('Please fill in both fields.');
             }
-        } else {
-            alert('Please fill in all fields.');
-        }
-    });
-</script>
-
+        });
+    </script>
 </body>
 </html>
