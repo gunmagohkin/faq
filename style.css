@@ -3,16 +3,6 @@ body {
     font-family: 'Times New Roman', serif;
 }
 
-.accordion {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.accordion-text {
-    padding: 10px;
-}
 
 .title {
     font-size: 24px;
