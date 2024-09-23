@@ -31,29 +31,38 @@
     <textarea id="comment" placeholder="Your Comment" required></textarea>
     <button id="submit">Submit</button>
 
-    <script>
-        const commentSection = document.getElementById('comment-section');
-        const submitButton = document.getElementById('submit');
+   <script>
+    const submitButton = document.getElementById('submit');
 
-        submitButton.addEventListener('click', () => {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const comment = document.getElementById('comment').value;
+    submitButton.addEventListener('click', async () => {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const comment = document.getElementById('comment').value;
 
-            if (name && email && comment) {
-                const newComment = document.createElement('div');
-                newComment.classList.add('comment');
-                newComment.innerHTML = `<strong>${name}:</strong><p>${comment}</p>`;
-                commentSection.appendChild(newComment);
-                
-                // Clear the input fields
-                document.getElementById('name').value = '';
-                document.getElementById('email').value = '';
-                document.getElementById('comment').value = '';
-            } else {
-                alert('Please fill in both fields.');
+        if (name && email && comment) {
+            try {
+                const response = await fetch('https://script.google.com/macros/s/AKfycbxDryaBjs_2M931hMoZ196FyAC-XfjWTgGDlv4bDlieI7KCV70Ypn7kBLEdvlhnvSiB/exec', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, comment }),
+                });
+
+                const result = await response.json();
+                if (result.status === 'success') {
+                    alert('Comment submitted successfully!');
+                } else {
+                    alert('Failed to submit comment');
+                }
+            } catch (error) {
+                alert('Error submitting comment: ' + error);
             }
-        });
-    </script>
+        } else {
+            alert('Please fill in all fields.');
+        }
+    });
+</script>
+
 </body>
 </html>
