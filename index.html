@@ -1,59 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<!-- Coding by CodingNepal | www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
     <meta charset="UTF-8">
+    <title> Responsive FAQ Accordion | CodingLab </title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comment Box</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        #comment-section {
-            margin-top: 20px;
-        }
-        .comment {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        input, textarea {
-            width: 100%;
-            margin-bottom: 10px;
-        }
-    </style>
-</head>
+   </head>
 <body>
-    <h2>Comments</h2>
-    <div id="comment-section"></div>
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="text" id="email" placeholder="Your Email" required>
-    <textarea id="comment" placeholder="Your Comment" required></textarea>
-    <button id="submit">Submit</button>
+  <div class="accordion">
+    <div class="image-box">
+      <img src="images/mainImg.png" alt="Accordion Image">
+    </div>
+    <div class="accordion-text">
+      <div class="title">FAQ</div>
+    <ul class="faq-text">
+      <li>
+        <div class="question-arrow">
+          <span class="question">What do you mean by HTML & CSS?</span>
+          <i class="bx bxs-chevron-down arrow"></i>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, doloribus.</p>
+        <span class="line"></span>
+      </li>
+      <li>
+        <div class="question-arrow">
+          <span class="question">What do you mean by JavaScript?</span>
+          <i class="bx bxs-chevron-down arrow"></i>
+        </div>
+        <p>JavaScript is a text-based programming language used both on the client-side and server-side that allows you to make web pages interactive</p>
+        <span class="line"></span>
+      </li>
+      <li>
+        <div class="question-arrow">
+          <span class="question">From where you learned HTML & CSS?</span>
+          <i class="bx bxs-chevron-down arrow"></i>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, necessitatibus.</p>
+        <span class="line"></span>
+      </li>
+      <li>
+        <div class="question-arrow">
+          <span class="question">Which code editor do you use?</span>
+          <i class="bx bxs-chevron-down arrow"></i>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, labore.</p>
+        <span class="line"></span>
+      </li>
+      <li>
+        <div class="question-arrow">
+          <span class="question">Software you use for video editing?</span>
+          <i class="bx bxs-chevron-down arrow"></i>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, repudiandae!</p>
+        <span class="line"></span>
+      </li>
+    </ul>
+    </div>
+  </div>
 
-    <script>
-        const commentSection = document.getElementById('comment-section');
-        const submitButton = document.getElementById('submit');
 
-        submitButton.addEventListener('click', () => {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const comment = document.getElementById('comment').value;
+  <script>
+    let li = document.querySelectorAll(".faq-text li");
+    for (var i = 0; i < li.length; i++) {
+      li[i].addEventListener("click", (e)=>{
+        let clickedLi;
+        if(e.target.classList.contains("question-arrow")){
+          clickedLi = e.target.parentElement;
+        }else{
+          clickedLi = e.target.parentElement.parentElement;
+        }
+       clickedLi.classList.toggle("showAnswer");
+      });
+    }
+  </script>
 
-            if (name && email && comment) {
-                const newComment = document.createElement('div');
-                newComment.classList.add('comment');
-                newComment.innerHTML = `<strong>${name}:</strong><p>${comment}</p>`;
-                commentSection.appendChild(newComment);
-                
-                // Clear the input fields
-                document.getElementById('name').value = '';
-                document.getElementById('email').value = '';
-                document.getElementById('comment').value = '';
-            } else {
-                alert('Please fill in both fields.');
-            }
-        });
-    </script>
 </body>
 </html>
