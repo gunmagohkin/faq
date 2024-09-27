@@ -1,6 +1,7 @@
 body {
     background: transparent;
     font-family: 'Times New Roman', serif;
+    overflow: hidden;
 }
 
 .accordion {
