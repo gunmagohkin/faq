@@ -2,7 +2,7 @@ body {
     background: transparent;
     font-family: 'Times New Roman', serif;
     margin: 0;
-    padding: 200px;
+    padding: 10px; /* Remove excessive padding */
     overflow-x: hidden;
 }
 
