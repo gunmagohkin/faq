@@ -3,15 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <title>FAQs</title>
-    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f4f7fc;
+            color: #333;
+            padding: 20px;
+        }
+    
+        h1 {
+            color: #2C3E50; /* Darker background */
+            font-size: 35px;
+            text-align: center;
+        }
+    
+        h2 {
+            color: #00549d;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+        }
+    
+        ul.faq-text {
+            list-style-type: none;
+        }
+    
+        li {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        li:hover {
+            background-color: #bdc3c7;
+        }
+    
+        .question-arrow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            color: #34495e;
+        }
+    
+        i.arrow {
+            font-size: 18px;
+            color: #34495e;
+            transition: transform 0.3s ease;
+        }
+    
+        p {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            margin-top: 10px;
+            padding-top: 0;
+            border-top: 1px solid #ddd;
+            font-size: 16px;
+            color: #000000;
+        }
+    
+        li.showAnswer p {
+            max-height: 200px;
+            padding-top: 10px;
+        }
+    
+        li.showAnswer i.arrow {
+            transform: rotate(180deg);
+        }
+    
+        /* Updated header1 styles */
+        .header1 {
+            display: block;
+            background-color: #2C3E50; /* Darker background */
+            color: #f1f1f1; /* Distinct color for section headers */
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 30px;
+        }
+    
+        a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    
+        a:hover {
+            text-decoration: underline;
+        }
+       /* Add colorful moving border when selected */
+li.selected {
+    background-color: #d6eaf8;
+    border: 3px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(270deg, #3498db, #e74c3c, #f1c40f, #2ecc71, #9b59b6);
+    animation: borderMove 3s linear infinite;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+@keyframes borderMove {
+    0% {
+        border-image-source: linear-gradient(270deg, #3498db, #e74c3c, #f1c40f, #2ecc71, #9b59b6);
+    }
+    100% {
+        border-image-source: linear-gradient(630deg, #3498db, #e74c3c, #f1c40f, #2ecc71, #9b59b6);
+    }
+}
+
+
+    </style>
+    
 </head>
 <body>
     <div class="accordion">
-        <h2>Frequently Asked Questions</h2>
+        <h1>Frequently Asked Questions</h1>
+        <br>
         <ul class="faq-text">
             <li>
-                <span class="header1"> <h1> General Information: </h1></span>
+               <h1> <span class="header1">General Information:</span></h1>
                 <div class="question-arrow">
                     <span class="question"><b>What is Gunma Gohkin Philippine Corporation?</b></span>
                     <i class="arrow">▼</i>
@@ -39,8 +173,7 @@
             </li>
             <li>
                 <div class="question-arrow">
-                    <span class="question"><b>How does GGPC ensure the quality of its products?
-                    </b></span>
+                    <span class="question"><b>How does GGPC ensure the quality of its products?</b></span>
                     <i class="arrow">▼</i>
                 </div>
                 <p>GGPC follows strict quality control procedures at every stage of production. We adhere to ISO standards and utilize advanced 
@@ -48,16 +181,15 @@
             </li>
             <li>
                 <div class="question-arrow">
-                    <span class="question"><b>Can GGPC handle international shipping and logistics?
-                    </b></span>
+                    <span class="question"><b>Can GGPC handle international shipping and logistics?</b></span>
                     <i class="arrow">▼</i>
                 </div>
                 <p>Yes, GGPC has experience in handling both domestic and international shipping. We ensure that all shipments are properly packaged
                      and delivered on time to meet our clients' global logistics requirements.</p>
             </li>
             <br>
-            <li>
-                <span class="header1"> <h1> Employment and Careers: </h1></span>
+            <li><i class="fa fa-link" aria-hidden="true"></i>
+                <h1><span class="header1">Employment and Careers:</span></h1>
                 <div class="question-arrow">
                     <span class="question"><b>How can I apply for a job at GGPC?</b></span>
                     <i class="arrow">▼</i>
@@ -68,7 +200,7 @@
             </li>
             <li>
                 <div class="question-arrow">
-                    <span class="question"><b>What qualifications are needed to work at GGPC?</b> </span>
+                    <span class="question"><b>What qualifications are needed to work at GGPC?</b></span>
                     <i class="arrow">▼</i>
                 </div>
                 <p>Qualifications depend on the specific position, but we generally look for 
@@ -76,31 +208,30 @@
             </li>
             <li>
                 <div class="question-arrow">
-                    <span class="question"><b>What employee benefits does GGPC provide?</b> </span>
+                    <span class="question"><b>What employee benefits does GGPC provide?</b></span>
                     <i class="arrow">▼</i>
                 </div>
                 <p>GGPC offers competitive benefits, including health insurance, paid time off, training opportunities, and performance bonuses.</p>
             </li>
             <br>
             <li>
-                <span class="header1"> <h1> Company Operations: </h1></span>
+                <h1><span class="header1">Company Operations:</span></h1>
                 <div class="question-arrow">
                     <span class="question"><b>What are GGPC's operating hours?</b></span>
                     <i class="arrow">▼</i>
                 </div>
-                <p>GGPC operates Monday through Friday, from <b> 8:00 ~ 16:00 </b>. Excluding Saturdays, Sundays and Public Holidays</p>
+                <p>GGPC operates Monday through Friday, from <b> 8:00 ~ 16:00 </b>. Excluding Saturdays, Sundays and Public Holidays.</p>
             </li>
             <li>
                 <div class="question-arrow">
-                    <span class="question"><b>How can I contact GGPC for business inquiries?</b> </span>
+                    <span class="question"><b>How can I contact GGPC for business inquiries?</b></span>
                     <i class="arrow">▼</i>
                 </div>
-                <p>You can reach us through the contact information provided on our website on the <a href="https://gunmagohkinph.notion.site/Contact-Us-fff02647088b811e8060c5a8101ca885"target="_blank"> <b> Contact Us</b></a>  page </p>
+                <p>You can reach us through the contact information provided on our website on the <a href="https://gunmagohkinph.notion.site/Contact-Us-fff02647088b811e8060c5a8101ca885"target="_blank"> <b> Contact Us</b></a> page.</p>
             </li>
             <li>
                 <div class="question-arrow">
-                    <span class="question"><b>How can I schedule a visit to GGPC's facility?
-                    </b> </span>
+                    <span class="question"><b>How can I schedule a visit to GGPC's facility?</b></span>
                     <i class="arrow">▼</i>
                 </div>
                 <p>To schedule a visit, please contact our corporate office through the provided 
@@ -108,23 +239,41 @@
             </li>
             <li>
                 <div class="question-arrow">
-                    <span class="question"><b>How can I become a supplier or partner for GGPC?
-                    </b> </span>
+                    <span class="question"><b>How can I become a supplier or partner for GGPC?</b></span>
                     <i class="arrow">▼</i>
                 </div>
-                <p>To explore potential partnership or supplier opportunities with GGPC, please submit your inquiry via our website or contact our 
-                     team. We welcome possible collaborations with reliable and quality-driven partners.</p>
+                <p>To become a supplier or partner, please submit a proposal through our business inquiry page, 
+                    detailing your products, services, and partnership objectives.</p>
             </li>
         </ul>
     </div>
 
     <script>
-       let li = document.querySelectorAll(".faq-text li");
-        for (let i = 0; i < li.length; i++) {
-        li[i].addEventListener("click", () => {
-        li[i].classList.toggle("showAnswer");
+
+let timeoutId;  // Store the timeout ID so we can clear it if needed
+
+const faqs = document.querySelectorAll("li");
+
+faqs.forEach((faq) => {
+    faq.addEventListener("click", () => {
+        // Remove the 'selected' class from all other FAQs
+        faqs.forEach((f) => f.classList.remove("selected"));
+
+        // Toggle the 'selected' class on the clicked FAQ
+        faq.classList.toggle("selected");
+        faq.classList.toggle("showAnswer");
+
+        // Clear the previous timeout if the user selects another FAQ
+        clearTimeout(timeoutId);
+
+        // Set a timeout to remove the 'selected' class after 15 seconds
+        timeoutId = setTimeout(() => {
+            faq.classList.remove("selected");
+            faq.classList.remove("showAnswer");
+        }, 15000); // 15000 milliseconds = 15 seconds
     });
-        }
+});
+
     </script>
 </body>
 </html>
